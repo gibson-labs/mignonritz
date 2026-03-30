@@ -14,7 +14,7 @@ export default function ProjectCard({ project, onClick }) {
       onClick={() => onClick(project)}
     >
       <div className="bg-card rounded-2xl overflow-hidden border border-border hover:shadow-xl hover:shadow-primary/5 transition-all duration-300">
-        <div className="aspect-[4/3] overflow-hidden">
+        <div className="aspect-[3/2] overflow-hidden">
           <img
             src={project.thumbnail}
             alt={project.title}
