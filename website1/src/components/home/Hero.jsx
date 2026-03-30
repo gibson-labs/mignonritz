@@ -7,7 +7,7 @@ import { PROFILE_IMAGE } from "@/lib/portfolioData";
 export default function Hero() {
   return (
     <section className="relative overflow-hidden">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-20 sm:py-28">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 sm:py-28">
         <div className="grid md:grid-cols-2 gap-12 items-center">
           <motion.div
             initial={{ opacity: 0, x: -40 }}

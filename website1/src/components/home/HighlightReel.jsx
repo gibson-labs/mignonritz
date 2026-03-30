@@ -7,7 +7,7 @@ const featured = PROJECTS.slice(0, 4);
 const HighlightReel = () => {
   return (
     <section className="py-24">
-      <div className="container mx-auto px-6">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <p className="text-primary font-medium tracking-widest text-sm uppercase mb-3">Selected Work</p>
           <h2 className="section-heading">Highlight Reel</h2>
