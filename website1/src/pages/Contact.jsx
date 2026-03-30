@@ -1,13 +1,12 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { Mail, Linkedin, Instagram, Download } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import { Mail, Linkedin, Instagram } from "lucide-react";
 import ContactForm from "@/components/contact/ContactForm";
 
 const socials = [
-  { icon: Linkedin, label: "LinkedIn", href: "#" },
+  { icon: Linkedin, label: "LinkedIn", href: "https://www.linkedin.com/in/mignon-ritz/" },
   { icon: Instagram, label: "Instagram", href: "#" },
-  { icon: Mail, label: "Email", href: "mailto:hello@example.com" },
+  { icon: Mail, label: "Email", href: "mailto:mignonritz29@gmail.com" },
 ];
 
 export default function Contact() {
@@ -63,16 +62,6 @@ export default function Contact() {
               </div>
             </div>
 
-            <div>
-              <Button
-                variant="outline"
-                className="font-body"
-                onClick={() => alert("Resume download would start here")}
-              >
-                <Download className="w-4 h-4 mr-2" />
-                Download Resume (PDF)
-              </Button>
-            </div>
           </motion.div>
 
           {/* Right column — Form */}
