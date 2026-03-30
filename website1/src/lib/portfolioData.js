@@ -1,4 +1,4 @@
-export const PROFILE_IMAGE = "https://media.base44.com/images/public/69c89613f2f68664d2b3affc/855c24c73_generated_b642fd0f.png";
+export const PROFILE_IMAGE = "/mignon.jpeg";
 
 export const PROJECTS = [
   {
@@ -72,27 +72,51 @@ export const PROJECTS = [
 export const EXPERIENCES = [
   {
     id: 1,
-    role: "Social Media Intern",
-    company: "Maverik",
-    period: "May 2025 – Aug 2025",
-    description: "Managed TikTok and Instagram content strategy, creating viral campaigns that drove 62% engagement growth. Collaborated with the marketing team on brand voice development and community management.",
-    filterCompany: "Maverik",
+    role: "Implementation Specialist",
+    company: "Alleva",
+    period: "July 2025 – Present",
+    description: "Onboard a new client each week onto customized behavioral health software, consulting on workflows and configuring systems to match each facility's needs. Recognized by a client for leading the \"best tech implementation they've ever seen\". Build comprehensive facility reports using Looker to enable data-driven decision-making.",
+    filterCompany: "Alleva",
   },
   {
     id: 2,
-    role: "Data Analytics",
-    company: "Circle K",
-    period: "Jan 2025 – Present",
-    description: "Building sales analytics dashboards and automated reporting pipelines for 200+ store locations. Transforming raw data into actionable insights that drive regional business decisions.",
-    filterCompany: "Circle K",
+    role: "Placement & Teaching Assistant",
+    company: "BYU Marketing Advisory Center",
+    period: "Jan 2024 – Apr 2025",
+    description: "Taught 20+ university lectures covering career planning and strategy. Collaborated on 14 weeks of educational content including videos, presentations, and worksheets. Facilitated career placement for 350+ marketing students through strategic guidance and industry connections.",
+    filterCompany: "BYU",
   },
   {
     id: 3,
-    role: "Marketing Generalist Intern",
+    role: "Research Assistant",
+    company: "BYU Marketing & Global Supply Chain",
+    period: "Jan 2024 – Apr 2025",
+    description: "Collaborated with Expert Voice to research online consumer trust (publication pending). Conducted literature analysis and developed a conjoint study on Qualtrics to gather consumer insights on online expertise.",
+    filterCompany: "BYU",
+  },
+  {
+    id: 4,
+    role: "Business Analytics Intern",
+    company: "Circle K",
+    period: "May 2024 – Jun 2025",
+    description: "Built 10+ Power BI reports supporting stakeholder needs and promotion insights. Identified $2M in sales misattribution by refining backend logic for Corporate vs. Franchise reporting. Created Power BI training videos to streamline onboarding and added currency conversion for CAD/USD stakeholder access.",
+    filterCompany: "Circle K",
+  },
+  {
+    id: 5,
+    role: "Marketing & Social Media Intern",
+    company: "Maverik",
+    period: "Aug – Dec 2023",
+    description: "Facilitated the launch of 2 marketing campaigns with sponsors including Red Bull and Ferrara. Boosted Instagram engagement 100x — from an average of 600 views to up to 60,000. Curated 10+ social posts and captions weekly inspired by current consumer trends.",
+    filterCompany: "Maverik",
+  },
+  {
+    id: 6,
+    role: "Strategic Planning Team Lead",
     company: "Gabb Wireless",
-    period: "Sep 2024 – Dec 2024",
-    description: "Led product launch marketing efforts including collateral creation, email campaigns, and cross-channel strategy. Produced 50+ assets that became the company's launch template.",
-    filterCompany: "Gabb Wireless",
+    period: "Jan – Apr 2023",
+    description: "Led a team of 5 in preparing and presenting research findings to company stakeholders. Generated a creative launch campaign for a kids' music streaming service and prepared influencer marketing strategies to reach 50,000+ individuals.",
+    filterCompany: "Gabb",
   },
 ];
 
