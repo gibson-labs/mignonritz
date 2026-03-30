@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
 import { motion } from "framer-motion";
-import { EXPERIENCES } from "@/lib/portfolioData";
+import { EXPERIENCES, PROJECTS } from "@/lib/portfolioData";
 
 export default function Timeline() {
   return (
@@ -51,13 +51,15 @@ export default function Timeline() {
                   <p className="text-muted-foreground font-body text-sm leading-relaxed mb-4">
                     {exp.description}
                   </p>
-                  <Link
-                    to={`/portfolio?company=${encodeURIComponent(exp.filterCompany)}`}
-                    className="inline-flex items-center gap-1.5 text-sm font-body font-medium text-primary hover:text-primary/80 transition-colors"
-                  >
-                    View {exp.company} Projects
-                    <ArrowRight className="w-3.5 h-3.5" />
-                  </Link>
+                  {PROJECTS.some((p) => p.company === exp.filterCompany) && (
+                    <Link
+                      to={`/portfolio?company=${encodeURIComponent(exp.filterCompany)}`}
+                      className="inline-flex items-center gap-1.5 text-sm font-body font-medium text-primary hover:text-primary/80 transition-colors"
+                    >
+                      View {exp.company} Projects
+                      <ArrowRight className="w-3.5 h-3.5" />
+                    </Link>
+                  )}
                 </div>
               </motion.div>
             ))}

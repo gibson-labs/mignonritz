@@ -122,7 +122,7 @@ export const EXPERIENCES = [
     company: "BYU Marketing Advisory Center",
     period: "Jan 2024 – Apr 2025",
     description: "Taught 20+ university lectures covering career planning and strategy. Collaborated on 14 weeks of educational content including videos, presentations, and worksheets. Facilitated career placement for 350+ marketing students through strategic guidance and industry connections.",
-    filterCompany: "BYU",
+    filterCompany: "BYU Marketing Advisory Center",
   },
   {
     id: 3,
@@ -130,7 +130,7 @@ export const EXPERIENCES = [
     company: "BYU Marketing & Global Supply Chain",
     period: "Jan 2024 – Apr 2025",
     description: "Collaborated with Expert Voice to research online consumer trust (publication pending). Conducted literature analysis and developed a conjoint study on Qualtrics to gather consumer insights on online expertise.",
-    filterCompany: "BYU",
+    filterCompany: "BYU Marketing Advisory Center",
   },
   {
     id: 4,

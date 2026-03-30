@@ -1,14 +1,17 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { X, Calendar, Briefcase, Tag } from "lucide-react";
+import { X, Calendar, Briefcase, Tag, ZoomIn } from "lucide-react";
 import { format } from "date-fns";
 
 export default function ProjectModal({ project, onClose }) {
+  const [lightboxImg, setLightboxImg] = useState(null);
+
   useEffect(() => {
     if (project) {
       document.body.style.overflow = "hidden";
     } else {
       document.body.style.overflow = "";
+      setLightboxImg(null);
     }
     return () => { document.body.style.overflow = ""; };
   }, [project]);
@@ -95,12 +98,19 @@ export default function ProjectModal({ project, onClose }) {
                   <h3 className="font-heading text-lg font-semibold text-foreground mb-4">Project Gallery</h3>
                   <div className="grid grid-cols-2 gap-3">
                     {project.gallery.map((img, i) => (
-                      <div key={i} className="rounded-xl overflow-hidden border border-border">
+                      <div
+                        key={i}
+                        className="group relative rounded-xl overflow-hidden border border-border cursor-zoom-in"
+                        onClick={() => setLightboxImg(img)}
+                      >
                         <img
                           src={img}
                           alt={`${project.title} - ${i + 1}`}
-                          className="w-full h-48 object-cover hover:scale-105 transition-transform duration-300"
+                          className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
                         />
+                        <div className="absolute inset-0 bg-foreground/0 group-hover:bg-foreground/20 transition-colors duration-300 flex items-center justify-center">
+                          <ZoomIn className="w-6 h-6 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                        </div>
                       </div>
                     ))}
                   </div>
@@ -110,6 +120,37 @@ export default function ProjectModal({ project, onClose }) {
           </motion.div>
         </motion.div>
       )}
+
+      {/* Lightbox */}
+      <AnimatePresence>
+        {lightboxImg && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 z-[60] flex items-center justify-center p-4"
+            onClick={() => setLightboxImg(null)}
+          >
+            <div className="absolute inset-0 bg-foreground/80 backdrop-blur-sm" />
+            <button
+              className="absolute top-4 right-4 p-2 rounded-full bg-background/20 text-white hover:bg-background/40 transition-colors"
+              onClick={() => setLightboxImg(null)}
+            >
+              <X className="w-6 h-6" />
+            </button>
+            <motion.img
+              initial={{ scale: 0.9, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.9, opacity: 0 }}
+              transition={{ duration: 0.2 }}
+              src={lightboxImg}
+              alt="Expanded view"
+              className="relative max-w-full max-h-[90vh] object-contain rounded-xl shadow-2xl"
+              onClick={(e) => e.stopPropagation()}
+            />
+          </motion.div>
+        )}
+      </AnimatePresence>
     </AnimatePresence>
   );
 }
