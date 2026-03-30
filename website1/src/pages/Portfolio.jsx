@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useMemo } from "react";
 import { motion, AnimatePresence, LayoutGroup } from "framer-motion";
+import { useSearchParams } from "react-router-dom";
 import { PROJECTS } from "@/lib/portfolioData";
 import FilterBar from "@/components/portfolio/FilterBar";
 import ProjectCard from "@/components/portfolio/ProjectCard";
@@ -8,31 +9,32 @@ import ProjectModal from "@/components/portfolio/ProjectModal";
 export default function Portfolio() {
   const [filters, setFilters] = useState({ categories: [], contexts: [] });
   const [selectedProject, setSelectedProject] = useState(null);
+  const [searchParams] = useSearchParams();
 
-  // Parse URL params for dynamic linking
+  // Re-run whenever URL search params change (handles navbar dropdown while already on page)
   useEffect(() => {
-    const params = new URLSearchParams(window.location.search);
-    const category = params.get("category");
-    const company = params.get("company");
-    const highlight = params.get("highlight");
+    const category = searchParams.get("category");
+    const company = searchParams.get("company");
+    const highlight = searchParams.get("highlight");
 
     if (category) {
-      setFilters((prev) => ({ ...prev, categories: [category] }));
-    }
-    if (company) {
-      // Find projects by company and set the appropriate context
+      setFilters({ categories: [category], contexts: [] });
+    } else if (company) {
       const companyProjects = PROJECTS.filter((p) => p.company === company);
       if (companyProjects.length > 0) {
         const contexts = [...new Set(companyProjects.map((p) => p.context))];
         const categories = [...new Set(companyProjects.map((p) => p.category))];
         setFilters({ categories, contexts });
       }
+    } else {
+      setFilters({ categories: [], contexts: [] });
     }
+
     if (highlight) {
       const project = PROJECTS.find((p) => p.id === parseInt(highlight));
       if (project) setSelectedProject(project);
     }
-  }, []);
+  }, [searchParams]);
 
   const filtered = useMemo(() => {
     let result = [...PROJECTS];
