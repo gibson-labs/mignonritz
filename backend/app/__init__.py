@@ -10,7 +10,7 @@ def create_app():
     @app.route("/", defaults={"path": ""})
     @app.route("/<path:path>")
     def serve(path):
-        if path and os.path.exists(os.path.join(STATIC_FOLDER, path)):
+        if path and os.path.isfile(os.path.join(STATIC_FOLDER, path)):
             return send_from_directory(STATIC_FOLDER, path)
         return send_from_directory(STATIC_FOLDER, "index.html")
 
