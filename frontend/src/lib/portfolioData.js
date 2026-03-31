@@ -158,5 +158,5 @@ export const EXPERIENCES = [
   },
 ];
 
-export const CATEGORIES = ["Social Media", "Data Analytics", "General Marketing", "Print & Digital"];
-export const CONTEXTS = ["Job", "Internship", "Personal"];
+export const CATEGORIES = ["Social Media", "Branding Projects", "Print & Digital"];
+export const CONTEXTS = ["Job", "School", "Personal"];
