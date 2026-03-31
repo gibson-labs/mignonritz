@@ -1,10 +1,13 @@
-import { Link } from "react-router-dom";
+import { useState } from "react";
 import { ArrowUpRight } from "lucide-react";
 import { PROJECTS } from "@/lib/portfolioData";
+import ProjectModal from "@/components/portfolio/ProjectModal";
 
 const featured = PROJECTS.slice(0, 4);
 
 const HighlightReel = () => {
+  const [selectedProject, setSelectedProject] = useState(null);
+
   return (
     <section className="py-24">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -15,10 +18,10 @@ const HighlightReel = () => {
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {featured.map((project, i) => (
-            <Link
+            <button
               key={project.id}
-              to={`/portfolio?highlight=${project.id}`}
-              className="project-card group animate-fade-in-up opacity-0"
+              onClick={() => setSelectedProject(project)}
+              className="project-card group animate-fade-in-up opacity-0 text-left"
               style={{ animationDelay: `${i * 0.1}s` }}
             >
               <div className="aspect-[4/3] overflow-hidden">
@@ -43,10 +46,12 @@ const HighlightReel = () => {
                   {project.description}
                 </p>
               </div>
-            </Link>
+            </button>
           ))}
         </div>
       </div>
+
+      <ProjectModal project={selectedProject} onClose={() => setSelectedProject(null)} />
     </section>
   );
 };

@@ -26,13 +26,21 @@ export default function Hero() {
               A versatile marketing professional with experience across social media, data analytics,
               product launches, and creative design. I turn insights into impact.
             </p>
-            <Link
-              to="/portfolio"
-              className="inline-flex items-center gap-2 px-6 py-3 bg-primary text-primary-foreground rounded-xl font-body font-medium text-sm hover:bg-primary/90 transition-colors shadow-lg shadow-primary/20"
-            >
-              View Full Portfolio
-              <ArrowRight className="w-4 h-4" />
-            </Link>
+            <div className="flex items-center gap-4">
+              <Link
+                to="/portfolio"
+                className="inline-flex items-center gap-2 px-6 py-3 bg-primary text-primary-foreground rounded-full font-body font-medium text-sm hover:bg-primary/90 transition-colors shadow-lg shadow-primary/20"
+              >
+                View Full Portfolio
+                <ArrowRight className="w-4 h-4" />
+              </Link>
+              <Link
+                to="/contact"
+                className="inline-flex items-center gap-2 px-6 py-3 border border-primary text-primary rounded-full font-body font-medium text-sm hover:bg-primary/10 transition-colors"
+              >
+                Get in Touch
+              </Link>
+            </div>
           </motion.div>
 
           <motion.div
