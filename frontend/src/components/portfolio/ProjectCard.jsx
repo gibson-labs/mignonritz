@@ -14,12 +14,18 @@ export default function ProjectCard({ project, onClick }) {
       onClick={() => onClick(project)}
     >
       <div className="bg-card rounded-2xl overflow-hidden border border-border hover:shadow-xl hover:shadow-primary/5 transition-all duration-300">
-        <div className="aspect-[3/2] overflow-hidden">
-          <img
-            src={project.thumbnail}
-            alt={project.title}
-            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-          />
+        <div className="aspect-[3/2] overflow-hidden bg-muted flex items-center justify-center">
+          {project.thumbnail ? (
+            <img
+              src={project.thumbnail}
+              alt={project.title}
+              className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+            />
+          ) : (
+            <span className="font-heading text-3xl font-bold text-primary/20 select-none">
+              {project.title.charAt(0)}
+            </span>
+          )}
         </div>
         <div className="p-5">
           <div className="flex items-start justify-between gap-2 mb-2">

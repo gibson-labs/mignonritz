@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { X, Calendar, Briefcase, Tag, ZoomIn } from "lucide-react";
+import { X, Calendar, Briefcase, Tag, ZoomIn, FileText, Play } from "lucide-react";
 import { format } from "date-fns";
 
 export default function ProjectModal({ project, onClose }) {
@@ -51,12 +51,18 @@ export default function ProjectModal({ project, onClose }) {
             </button>
 
             {/* Hero image */}
-            <div className="aspect-video w-full overflow-hidden rounded-t-2xl">
-              <img
-                src={project.thumbnail}
-                alt={project.title}
-                className="w-full h-full object-cover"
-              />
+            <div className="aspect-video w-full overflow-hidden rounded-t-2xl bg-muted flex items-center justify-center">
+              {project.thumbnail ? (
+                <img
+                  src={project.thumbnail}
+                  alt={project.title}
+                  className="w-full h-full object-cover"
+                />
+              ) : (
+                <span className="font-heading text-6xl font-bold text-primary/20 select-none">
+                  {project.title.charAt(0)}
+                </span>
+              )}
             </div>
 
             <div className="p-6 sm:p-8">
@@ -97,22 +103,53 @@ export default function ProjectModal({ project, onClose }) {
                 <div>
                   <h3 className="font-heading text-lg font-semibold text-foreground mb-4">Project Gallery</h3>
                   <div className="grid grid-cols-2 gap-3">
-                    {project.gallery.map((img, i) => (
-                      <div
-                        key={i}
-                        className="group relative rounded-xl overflow-hidden border border-border cursor-zoom-in"
-                        onClick={() => setLightboxImg(img)}
-                      >
-                        <img
-                          src={img}
-                          alt={`${project.title} - ${i + 1}`}
-                          className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
-                        />
-                        <div className="absolute inset-0 bg-foreground/0 group-hover:bg-foreground/20 transition-colors duration-300 flex items-center justify-center">
-                          <ZoomIn className="w-6 h-6 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                    {project.gallery.map((item, i) => {
+                      const isPdf = item.toLowerCase().endsWith(".pdf");
+                      const isVideo = item.toLowerCase().endsWith(".mp4") || item.toLowerCase().endsWith(".mov");
+                      if (isPdf) {
+                        const fileName = item.split("/").pop().replace(/-/g, " ").replace(".pdf", "");
+                        return (
+                          <a
+                            key={i}
+                            href={item}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="group flex flex-col items-center justify-center gap-2 rounded-xl border border-border bg-muted h-48 hover:bg-primary/10 hover:border-primary transition-colors duration-200"
+                          >
+                            <FileText className="w-10 h-10 text-primary/60 group-hover:text-primary transition-colors" />
+                            <span className="text-xs font-body text-muted-foreground group-hover:text-foreground text-center px-3 capitalize">{fileName}</span>
+                          </a>
+                        );
+                      }
+                      if (isVideo) {
+                        return (
+                          <div key={i} className="rounded-xl overflow-hidden border border-border h-48">
+                            <video
+                              src={item}
+                              className="w-full h-full object-cover"
+                              controls
+                              preload="metadata"
+                            />
+                          </div>
+                        );
+                      }
+                      return (
+                        <div
+                          key={i}
+                          className="group relative rounded-xl overflow-hidden border border-border cursor-zoom-in"
+                          onClick={() => setLightboxImg(item)}
+                        >
+                          <img
+                            src={item}
+                            alt={`${project.title} - ${i + 1}`}
+                            className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
+                          />
+                          <div className="absolute inset-0 bg-foreground/0 group-hover:bg-foreground/20 transition-colors duration-300 flex items-center justify-center">
+                            <ZoomIn className="w-6 h-6 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                          </div>
                         </div>
-                      </div>
-                    ))}
+                      );
+                    })}
                   </div>
                 </div>
               )}
