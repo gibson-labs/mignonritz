@@ -5,7 +5,7 @@ import ContactForm from "@/components/contact/ContactForm";
 
 const socials = [
   { icon: Linkedin, label: "LinkedIn", href: "https://www.linkedin.com/in/mignon-ritz/" },
-  { icon: Instagram, label: "Instagram", href: "#" },
+  { icon: Instagram, label: "Instagram", href: "https://www.instagram.com/mig.ritz/" },
   { icon: Mail, label: "Email", href: "mailto:mignonritz29@gmail.com" },
 ];
 
