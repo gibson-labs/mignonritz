@@ -115,7 +115,7 @@ export const PROJECTS = [
   },
   {
     id: 9,
-    title: "Alyson and Benji Wedding Suite",
+    title: "Alyson and Benji Wedding Invites",
     context: "Personal",
     category: "Print & Digital",
     company: "Freelance",
