@@ -47,6 +47,8 @@ export const PROJECTS = [
     description: "Made 10+ Instagram posts a week for Maverik during my internship. Leaned into Gen Z trends and Maverik's adventure identity — one post hit 60k views, up from an average of 600. Also helped launch two sponsored campaigns with Red Bull and Ferrara.",
     gallery: [
       "/portfolio/maverik-cover.jpg",
+      "/portfolio/maverik-video-1.mov",
+      "/portfolio/maverik-video-2.mov",
       "/portfolio/maverik-post-4.png",
       "/portfolio/maverik-post-6.png",
       "/portfolio/maverik-girl-math.png",
