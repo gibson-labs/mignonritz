@@ -82,16 +82,9 @@ export default function ProjectModal({ project, onClose }) {
                 </span>
               </div>
 
-              {/* Goal */}
-              <div className="mb-6">
-                <h3 className="font-heading text-lg font-semibold text-foreground mb-2">The Goal</h3>
-                <p className="text-muted-foreground font-body leading-relaxed">{project.goal}</p>
-              </div>
-
-              {/* Results */}
+              {/* Description */}
               <div className="mb-8">
-                <h3 className="font-heading text-lg font-semibold text-foreground mb-2">Results</h3>
-                <p className="text-muted-foreground font-body leading-relaxed">{project.results}</p>
+                <p className="text-muted-foreground font-body leading-relaxed">{project.description}</p>
               </div>
 
               {/* Gallery */}
