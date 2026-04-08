@@ -80,10 +80,6 @@ export default function ProjectModal({ project, onClose }) {
                   <Briefcase className="w-3 h-3" />
                   {project.context} — {project.company}
                 </span>
-                <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-muted text-muted-foreground text-xs font-body font-medium">
-                  <Calendar className="w-3 h-3" />
-                  {format(new Date(project.date), "MMM yyyy")}
-                </span>
               </div>
 
               {/* Goal */}
