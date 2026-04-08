@@ -1,0 +1,161 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 34 33% 95%;
+    --foreground: 220 10% 25%;
+    --card: 36 30% 97%;
+    --card-foreground: 220 10% 25%;
+    --popover: 36 30% 97%;
+    --popover-foreground: 220 10% 25%;
+    --primary: 143 25% 45%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 34 25% 90%;
+    --secondary-foreground: 220 10% 25%;
+    --muted: 34 20% 92%;
+    --muted-foreground: 220 8% 50%;
+    --accent: 143 25% 45%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 34 18% 85%;
+    --input: 34 18% 85%;
+    --ring: 143 25% 45%;
+    --chart-1: 143 25% 45%;
+    --chart-2: 34 33% 70%;
+    --chart-3: 220 10% 40%;
+    --chart-4: 143 20% 60%;
+    --chart-5: 34 40% 80%;
+    --radius: 0.625rem;
+    --sidebar-background: 36 30% 97%;
+    --sidebar-foreground: 220 10% 25%;
+    --sidebar-primary: 143 25% 45%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 34 25% 90%;
+    --sidebar-accent-foreground: 220 10% 25%;
+    --sidebar-border: 34 18% 85%;
+    --sidebar-ring: 143 25% 45%;
+
+    --font-heading: 'Playfair Display', serif;
+    --font-body: 'DM Sans', sans-serif;
+  }
+
+  .dark {
+    --background: 220 15% 10%;
+    --foreground: 34 20% 90%;
+    --card: 220 15% 13%;
+    --card-foreground: 34 20% 90%;
+    --popover: 220 15% 13%;
+    --popover-foreground: 34 20% 90%;
+    --primary: 143 25% 50%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 220 12% 18%;
+    --secondary-foreground: 34 20% 90%;
+    --muted: 220 12% 18%;
+    --muted-foreground: 34 15% 55%;
+    --accent: 143 25% 50%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 220 12% 20%;
+    --input: 220 12% 20%;
+    --ring: 143 25% 50%;
+    --chart-1: 143 25% 50%;
+    --chart-2: 34 33% 60%;
+    --chart-3: 220 10% 50%;
+    --chart-4: 143 20% 55%;
+    --chart-5: 34 40% 70%;
+    --sidebar-background: 220 15% 10%;
+    --sidebar-foreground: 34 20% 90%;
+    --sidebar-primary: 143 25% 50%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 220 12% 18%;
+    --sidebar-accent-foreground: 34 20% 90%;
+    --sidebar-border: 220 12% 20%;
+    --sidebar-ring: 143 25% 50%;
+  }
+}
+
+
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+
+  body {
+    @apply bg-background text-foreground font-body antialiased;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-heading;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+@layer components {
+  .project-card {
+    @apply rounded-xl overflow-hidden bg-card shadow-sm hover:shadow-lg transition-all duration-500 cursor-pointer;
+  }
+
+  .section-heading {
+    @apply font-heading text-3xl md:text-4xl font-semibold text-foreground tracking-tight;
+  }
+
+  .filter-tag {
+    @apply px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 cursor-pointer border;
+  }
+
+  .filter-tag-active {
+    @apply bg-primary text-primary-foreground border-primary shadow-md;
+  }
+
+  .filter-tag-inactive {
+    @apply bg-secondary text-foreground border-border hover:bg-primary/10 hover:border-primary/30;
+  }
+
+  .nav-link {
+    @apply relative text-foreground/70 hover:text-foreground transition-colors duration-300 font-medium text-sm tracking-wide uppercase;
+  }
+
+  .nav-link::after {
+    content: '';
+    @apply absolute bottom-0 left-0 w-full h-0.5 bg-primary scale-x-0 origin-bottom-right transition-transform duration-300;
+  }
+
+  .nav-link:hover::after {
+    @apply scale-x-100 origin-bottom-left;
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center gap-2 px-6 py-3 bg-primary text-primary-foreground rounded-full font-medium text-sm tracking-wide transition-all duration-300 hover:shadow-lg hover:-translate-y-0.5;
+  }
+
+  .btn-outline {
+    @apply inline-flex items-center gap-2 px-6 py-3 border-2 border-primary text-foreground rounded-full font-medium text-sm tracking-wide transition-all duration-300 hover:bg-primary hover:text-primary-foreground;
+  }
+}
+
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in-up {
+  animation: fade-in-up 0.5s ease forwards;
+}
